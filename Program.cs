@@ -76,6 +76,7 @@ PrintArray(array);
 
 int MinSumLine = 0;
 int SumLine = SumLineElements(array, 0);
+
 for (int i = 1; i < array.GetLength(0); i++)
 {
     int TempSumLine = SumLineElements(array, i);
@@ -91,12 +92,12 @@ Console.WriteLine($"Строка с номером {MinSumLine+1} являетс
 
 int SumLineElements(int[,] array, int i)
 {
-    int sumLine = array[i, 0];
+    int sum = array[i, 0];
     for (int j = 1; j < array.GetLength(1); j++)
     {
-        sumLine += array[i, j];
+        sum = sum + array[i, j];
     }
-    return sumLine;
+    return sum;
 }
 
 void FillArrayRandomNumbers(int[,] array)
