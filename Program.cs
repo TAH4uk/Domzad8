@@ -62,10 +62,18 @@
 
 // Задача 56: Задайте прямоугольный двумерный массив. Напишите программу, которая будет находить строку с наименьшей суммой элементов.
 
-// Console.Write("Введите размер массива: ");
-// int SizeArray = Convert.ToInt32(Console.ReadLine());
-// int NumberRow = SizeArray;
-// int NumberColumn = SizeArray;
+// Console.Write("Введите количество строк прямоугольного массива: ");
+// int NumberRow = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Введите количество столбцов прямоугольного массива: ");
+// int NumberColumn = Convert.ToInt32(Console.ReadLine());
+
+// while(NumberRow == NumberColumn)
+// {
+//     Console.Write("Количество строк и столбцов совпадает. Повторно введите количество строк: ");
+//     NumberRow = Convert.ToInt32(Console.ReadLine());
+//     Console.Write("Количество строк и столбцов совпадает. Повторно введите количество столбцов: ");
+//     NumberColumn = Convert.ToInt32(Console.ReadLine());
+// }
 
 // int[,] array = new int[NumberRow, NumberColumn];
 
@@ -197,58 +205,58 @@
 
 // Задача 62. Напишите программу, которая заполнит спирально массив 4 на 4.
 
-int size = 4;
-int[,] Array = new int[size, size];
+// int size = 4;
+// int[,] Array = new int[size, size];
 
-int temp = 1;
-int i = 0;
-int j = 0;
+// int temp = 1;
+// int i = 0;
+// int j = 0;
 
-while (temp <= Array.GetLength(0) * Array.GetLength(1))
-{
-    Array[i, j] = temp;
-    temp++;
-        if (i <= j + 1 && i + j < Array.GetLength(1) - 1)
-        {
-            j++;
-        }
-        else 
-        {
-            if (i < j && i + j >= Array.GetLength(0) - 1)
-            {
-                i++;
-            }
-            else
-            {
-                if (i >= j && i + j > Array.GetLength(1) - 1)
-                {
-                    j--;
-                }
-                else
-                {
-                    i--;  
-                }
-            }
-        }
-}
+// while (temp <= Array.GetLength(0) * Array.GetLength(1))
+// {
+//     Array[i, j] = temp;
+//     temp++;
+//         if (i <= j + 1 && i + j < Array.GetLength(1) - 1)
+//         {
+//             j++;
+//         }
+//         else 
+//         {
+//             if (i < j && i + j >= Array.GetLength(0) - 1)
+//             {
+//                 i++;
+//             }
+//             else
+//             {
+//                 if (i >= j && i + j > Array.GetLength(1) - 1)
+//                 {
+//                     j--;
+//                 }
+//                 else
+//                 {
+//                     i--;  
+//                 }
+//             }
+//         }
+// }
 
-WriteArray(Array);
+// WriteArray(Array);
 
-void WriteArray(int[,] Arr)
-{
-    for (int i = 0; i < Array.GetLength(0); i++)
-    {
-        for (int j = 0; j < Array.GetLength(1); j++)
-        {
-            if (Array[i, j] / 10 <= 0)
-            {
-                Console.Write($" {Array[i, j]} ");
-            }
-            else 
-            {
-                Console.Write($"{Array[i, j]} ");
-            }
-        }
-        Console.WriteLine();
-    }
-}
+// void WriteArray(int[,] Arr)
+// {
+//     for (int i = 0; i < Array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < Array.GetLength(1); j++)
+//         {
+//             if (Array[i, j] / 10 <= 0)
+//             {
+//                 Console.Write($" {Array[i, j]} ");
+//             }
+//             else 
+//             {
+//                 Console.Write($"{Array[i, j]} ");
+//             }
+//         }
+//         Console.WriteLine();
+//     }
+// }
