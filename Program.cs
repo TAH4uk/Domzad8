@@ -62,65 +62,193 @@
 
 // Задача 56: Задайте прямоугольный двумерный массив. Напишите программу, которая будет находить строку с наименьшей суммой элементов.
 
-Console.Write("Введите размер массива: ");
-int SizeArray = Convert.ToInt32(Console.ReadLine());
-int NumberRow = SizeArray;
-int NumberColumn = SizeArray;
+// Console.Write("Введите размер массива: ");
+// int SizeArray = Convert.ToInt32(Console.ReadLine());
+// int NumberRow = SizeArray;
+// int NumberColumn = SizeArray;
 
-int[,] array = new int[NumberRow, NumberColumn];
+// int[,] array = new int[NumberRow, NumberColumn];
 
-FillArrayRandomNumbers(array);
-Console.WriteLine();
-Console.WriteLine("Полученный массив:");
-PrintArray(array);
+// FillArrayRandomNumbers(array);
+// Console.WriteLine();
+// Console.WriteLine("Полученный массив:");
+// PrintArray(array);
 
-int MinSumLine = 0;
-int SumLine = SumLineElements(array, 0);
+// int MinSumLine = 0;
+// int SumLine = SumLineElements(array, 0);
 
-for (int i = 1; i < array.GetLength(0); i++)
+// for (int i = 1; i < array.GetLength(0); i++)
+// {
+//     int TempSumLine = SumLineElements(array, i);
+//     if (SumLine > TempSumLine)
+//     {
+//         SumLine = TempSumLine;
+//         MinSumLine = i;
+//     }
+// }
+
+// Console.WriteLine();
+// Console.WriteLine($"Строка с номером {MinSumLine + 1} является строкой с наименьшей суммой элементов равной {SumLine}");
+
+// int SumLineElements(int[,] array, int i)
+// {
+//     int sum = array[i, 0];
+//     for (int j = 1; j < array.GetLength(1); j++)
+//     {
+//         sum = sum + array[i, j];
+//     }
+//     return sum;
+// }
+
+// void FillArrayRandomNumbers(int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             array[i, j] = new Random().Next(0, 10);
+//         }
+//     }
+// }
+
+// void PrintArray(int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         Console.Write("[ ");
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             Console.Write(array[i, j] + " ");
+//         }
+//         Console.Write("]");
+//         Console.WriteLine();
+//     }
+// }
+
+// Задача 58: Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
+
+// Console.Write("Введите количество строк 1-ой матрицы: ");
+// int FirstMatrixRow = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Введите количество столбцов 1-ой матрицы равное количеству строк 2-ой матрицы: "); // условие перемножения матриц
+// int FirstMatrixColumn = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Введите количество столбцов 2-ой матрицы: ");
+// int TwoMatrixColumn = Convert.ToInt32(Console.ReadLine());
+
+// int[,] FirstMatrix = new int[FirstMatrixRow, FirstMatrixColumn];
+// int[,] TwoMatrix = new int[FirstMatrixColumn, TwoMatrixColumn];
+
+// FillArrayRandomNumbers(FirstMatrix);
+// Console.WriteLine();
+// Console.WriteLine("Полученная первая матрица:");
+// PrintArray(FirstMatrix);
+
+// FillArrayRandomNumbers(TwoMatrix);
+// Console.WriteLine();
+// Console.WriteLine("Полученная вторая матрица:");
+// PrintArray(TwoMatrix);
+
+// int[,] ResultMulti = new int[FirstMatrixRow, TwoMatrixColumn];
+
+// Console.WriteLine();
+// Multiplication(FirstMatrix, TwoMatrix, ResultMulti);
+// Console.WriteLine("Результат перемножения двух матриц:");
+// PrintArray(ResultMulti);
+
+// void Multiplication(int[,] MatrixOne, int[,] MatrixSecond, int[,] Result)
+// {
+//     for (int i = 0; i < Result.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < Result.GetLength(1); j++)
+//         {
+//             int sum = 0;
+//             for (int k = 0; k < MatrixOne.GetLength(1); k++)
+//             {
+//                 sum = sum + (MatrixOne[i, k] * MatrixSecond[k, j]);
+//             }
+//             Result[i, j] = sum;
+//         }
+//     }
+// }
+
+// void FillArrayRandomNumbers(int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             array[i, j] = new Random().Next(0, 10);
+//         }
+//     }
+// }
+
+// void PrintArray(int[,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         Console.Write("[ ");
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             Console.Write(array[i, j] + " ");
+//         }
+//         Console.Write("]");
+//         Console.WriteLine();
+//     }
+// }
+
+// Задача 62. Напишите программу, которая заполнит спирально массив 4 на 4.
+
+int size = 4;
+int[,] Array = new int[size, size];
+
+int temp = 1;
+int i = 0;
+int j = 0;
+
+while (temp <= Array.GetLength(0) * Array.GetLength(1))
 {
-    int TempSumLine = SumLineElements(array, i);
-    if (SumLine > TempSumLine)
-    {
-        SumLine = TempSumLine;
-        MinSumLine = i;
-    }
-}
-
-Console.WriteLine();
-Console.WriteLine($"Строка с номером {MinSumLine+1} является строкой с наименьшей суммой элементов равной {SumLine}");
-
-int SumLineElements(int[,] array, int i)
-{
-    int sum = array[i, 0];
-    for (int j = 1; j < array.GetLength(1); j++)
-    {
-        sum = sum + array[i, j];
-    }
-    return sum;
-}
-
-void FillArrayRandomNumbers(int[,] array)
-{
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        for (int j = 0; j < array.GetLength(1); j++)
+    Array[i, j] = temp;
+    temp++;
+        if (i <= j + 1 && i + j < Array.GetLength(1) - 1)
         {
-            array[i, j] = new Random().Next(0, 10);
+            j++;
         }
-    }
+        else 
+        {
+            if (i < j && i + j >= Array.GetLength(0) - 1)
+            {
+                i++;
+            }
+            else
+            {
+                if (i >= j && i + j > Array.GetLength(1) - 1)
+                {
+                    j--;
+                }
+                else
+                {
+                    i--;  
+                }
+            }
+        }
 }
 
-void PrintArray(int[,] array)
+WriteArray(Array);
+
+void WriteArray(int[,] Arr)
 {
-    for (int i = 0; i < array.GetLength(0); i++)
+    for (int i = 0; i < Array.GetLength(0); i++)
     {
-        Console.Write("[ ");
-        for (int j = 0; j < array.GetLength(1); j++)
+        for (int j = 0; j < Array.GetLength(1); j++)
         {
-            Console.Write(array[i, j] + " ");
+            if (Array[i, j] / 10 <= 0)
+            {
+                Console.Write($" {Array[i, j]} ");
+            }
+            else 
+            {
+                Console.Write($"{Array[i, j]} ");
+            }
         }
-        Console.Write("]");
         Console.WriteLine();
     }
 }
